@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Animation Project</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #d63384;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 20px;
+        }
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-left: 5px solid #d63384;
+            padding: 10px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .file-content {
+            background-color: #fafafa;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>💖 Big Heart Animation</h1>
+    <p>A mesmerizing particle-based heart animation built with <strong>Python</strong> and <strong>Pygame</strong>, featuring a pulsating heart and a custom name that appears when the mouse hovers inside the heart.</p>
+
+    <h2>🌟 Features</h2>
+    <ul>
+        <li>15,000 (configurable) particles forming a heart shape.</li>
+        <li>Smooth pulsating animation.</li>
+        <li>Customizable text displayed on hover.</li>
+        <li>Custom background and text colors.</li>
+        <li>Easily change font and text.</li>
+    </ul>
+
+    <h2>⚙️ Configuration</h2>
+    <p>Edit these variables in <code>heart_particles.py</code>:</p>
+    <pre><code>WIDTH, HEIGHT = 700, 700          # Window size
+PARTICLE_COUNT = 15000            # Number of particles
+NAME = "Your Name Here"           # Hover text
+BG_COLOR = (10, 5, 25)            # Background color (RGB)
+TEXT_COLOR = (255, 200, 220)      # Text color (RGB)
+font_path = "LeckerliOne-Regular.ttf" # Font file path
+</code></pre>
+
+    <h2>💻 Requirements</h2>
+    <ul>
+        <li>Python 3.8 or newer</li>
+        <li>Pygame library</li>
+    </ul>
+    <p>Install dependencies by running:</p>
+    <pre><code>pip install pygame
+</code></pre>
+
+    <h2>▶️ How to Run</h2>
+    <ol>
+        <li>Place these files in the same folder:
+            <ul>
+                <li><code>heart_particles.py</code></li>
+                <li><code>LeckerliOne-Regular.ttf</code></li>
+                <li><code>README.md</code></li>
+            </ul>
+        </li>
+        <li>Open Command Prompt in that folder.</li>
+        <li>Run:
+            <pre><code>python heart_particles.py
+</code></pre>
+        </li>
+    </ol>
+
+    <h2>✨ Example Customization</h2>
+    <p>Change the hover text:</p>
+    <pre><code>NAME = "Happy Birthday ❤️"
+</code></pre>
+    <p>Change colors:</p>
+    <pre><code>BG_COLOR = (0, 0, 0)         # Black background
+TEXT_COLOR = (255, 50, 50)   # Bright red text
+</code></pre>
+
+    <hr>
+    
+    <h2>🖥️ Windows Setup Guide – Heart Animation Project</h2>
+    <p>Follow these steps to set up and run the animated heart on Windows.</p>
+    
+    <h3>1️⃣ Install Python</h3>
+    <ul>
+        <li>Download Python: <a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a></li>
+        <li>During install: Check <strong>“Add Python to PATH”</strong>.</li>
+        <li>Verify:
+            <pre><code>python --version
+</code></pre>
+        </li>
+    </ul>
+
+    <h3>2️⃣ Download Project Files</h3>
+    <p>Keep these files together in one folder:</p>
+    <ul>
+        <li><code>heart_particles.py</code></li>
+        <li><code>LeckerliOne-Regular.ttf</code></li>
+        <li><code>README.md</code></li>
+        <li><code>WindowsGuide.md</code></li>
+    </ul>
+    
+    <h3>3️⃣ Install Pygame</h3>
+    <pre><code>pip install pygame
+</code></pre>
+
+    <h3>4️⃣ Run the Animation</h3>
+    <pre><code>python heart_particles.py
+</code></pre>
+    <p>A window will appear showing the heart. Hover your mouse to reveal your custom text.</p>
+
+    <h3>5️⃣ Customize</h3>
+    <ul>
+        <li>Edit <code>NAME</code> in <code>heart_particles.py</code> to change the message.</li>
+        <li>Edit <code>BG_COLOR</code> and <code>TEXT_COLOR</code> for colors.</li>
+    </ul>
+    
+    <hr>
+
+    <h2><code>heart_particles.py</code></h2>
+    <div class="file-content">
+        <pre><code>import pygame
+import random
+import math
+
+# -------------------
+# CONFIG
+# -------------------
+WIDTH, HEIGHT = 700, 700
+PARTICLE_COUNT = 15000
+NAME = "Love You"
+BG_COLOR = (10, 5, 25)
+TEXT_COLOR = (255, 200, 220)
+
+pygame.init()
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Big Heart Animation")
+
+font_path = "LeckerliOne-Regular.ttf"
+try:
+    font = pygame.font.Font(font_path, 72)
+except pygame.error:
+    print("Font file not found. Using Arial as a fallback.")
+    font = pygame.font.SysFont("Arial", 72, bold=True)
+
+# -------------------
+# Heart Generation and Bounding Box
+# -------------------
+def heart_points(n, scale, offset):
+    """Generate n random points inside the heart more efficiently."""
+    points = []
+    for _ in range(n):
+        t = random.uniform(0, 2 * math.pi)
+        r = random.uniform(0, 1)
+
+        x = scale * r * (16 * math.sin(t)**3)
+        y = -scale * r * (
+            13 * math.cos(t)
+            - 5 * math.cos(2 * t)
+            - 2 * math.cos(3 * t)
+            - math.cos(4 * t)
+        )
+        points.append((int(x + offset[0]), int(y + offset[1])))
+    return points
+
+# Generate heart particles
+particles = heart_points(PARTICLE_COUNT, scale=15, offset=(WIDTH // 2, HEIGHT // 2))
+
+# -------------------
+# MAIN LOOP
+# -------------------
+clock = pygame.time.Clock()
+running = True
+time = 0
+
+while running:
+    clock.tick(60)
+    time += 0.05
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    screen.fill(BG_COLOR)
+
+    # Pulsating effect
+    pulse = 1 + 0.05 * math.sin(time)
+    for (x, y) in particles:
+        dx = x - WIDTH // 2
+        dy = y - HEIGHT // 2
+        px = int(WIDTH // 2 + dx * pulse)
+        py = int(HEIGHT // 2 + dy * pulse)
+        screen.set_at((px, py), (255, 100, 150))
+
+    # Check mouse hover inside heart
+    mx, my = pygame.mouse.get_pos()
+    dx = mx - WIDTH // 2
+    dy = my - HEIGHT // 2
+    d = (dx**2 + dy**2) ** 0.5
+    if d < 200:  # Rough bounding circle for heart
+        text_surface = font.render(NAME, True, TEXT_COLOR)
+        text_rect = text_surface.get_rect(center=(WIDTH // 2, HEIGHT // 2))
+        screen.blit(text_surface, text_rect)
+
+    pygame.display.flip()
+
+pygame.quit()
+</code></pre>
+    </div>
+
+</div>
+
+</body>
+</html>
